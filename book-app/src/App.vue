@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
 
     <!-- heading -->
-    <header>
+    <header class="app__heading">
       <h1>Books<span>.app</span></h1>
     </header>
 
@@ -52,3 +52,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .app {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+    margin: 0 auto;
+
+    &__heading {
+      font-size: 3rem;
+      text-align: center;
+      span {
+        color: #5a58da;
+      }
+    }
+  }
+</style>
