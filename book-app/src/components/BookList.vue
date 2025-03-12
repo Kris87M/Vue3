@@ -4,7 +4,7 @@
       <li
         :key="index" v-for="(book, index) in books"
         class="books-list__item"
-        :class="{ 'books-list__item--promotion': book.price < 20 }">
+        :class="{ 'books-list__item--promotion': parseInt(book.price.replace('$', '')) < 20 }">
         {{ book.title }}, {{ book.price }}
         <button
           @click="$emit('remove', index)"

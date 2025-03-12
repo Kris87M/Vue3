@@ -33,8 +33,9 @@ export default {
   }),
   methods: {
     handleSubmit () {
+      this.form.price = `$${this.form.price}`
       this.$emit('add', this.form)
-      this.form = { title: '', price: 0 }
+      this.form = { title: '', price: '' }
     }
   }
 }

@@ -31,16 +31,7 @@ export default {
   components: { BooksList, BooksLengthMsg, BookForm, BooksSummary },
   name: 'App',
   data: () => ({
-    books: [
-      {
-        title: 'The Catcher in the Rye',
-        price: 20
-      },
-      {
-        title: 'Of Mice and Men',
-        price: 18
-      }
-    ]
+    books: []
   }),
   methods: {
     removeBook (index) {
@@ -49,6 +40,14 @@ export default {
     addBook (book) {
       this.books.push({ ...book })
     }
+  },
+  async mounted () {
+    const response = await fetch('https://api.itbook.store/1.0/new')
+    const data = await response.json()
+    this.books = data.books.slice(0, 3).map(book => ({
+      title: book.title,
+      price: book.price
+    }))
   }
 }
 </script>
