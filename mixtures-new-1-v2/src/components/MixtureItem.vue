@@ -2,31 +2,32 @@
   <li class="mixtures__mixture">
 
       <!-- decrement btn -->
-      <button
+      <button-item
+        icon="arrow-down"
         @click="$emit('decrement')"
         class="mixtures__mixture__btn mixtures__mixture__btn--left">
-        <span
-          class="fas fa-arrow-down" />
-      </button>
+      </button-item>
 
       <div
         :class="`mixtures__mixture__fill mixtures__mixture__fill--${mixture.variant}`"
         :style="{ height: mixture.amount + '%' }" />
 
       <!-- increment btn -->
-      <button
+      <button-item
+        icon="arrow-up"
+        :movement="-0.5"
         @click="$emit('increment')"
         class="mixtures__mixture__btn mixtures__mixture__btn--right">
-        <span
-          class="fas fa-arrow-up" />
-      </button>
+      </button-item>
 
   </li>
 </template>
 
 <script>
+import ButtonItem from './shared/ButtonItem.vue'
 export default {
   name: 'MixtureItem',
+  components: { ButtonItem },
   props: {
     mixture: {
       type: Object,
@@ -78,34 +79,16 @@ export default {
   }
 
   &__btn {
-    background-color: #9a9a9a;
-    background-image: linear-gradient(0deg, #9a9a9a 0%, #e8fdff 100%);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 2rem;
-    height: 2rem;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    -webkit-box-shadow: 0 20px 40px 0 rgba(107,154,212,.1);
-    box-shadow: 0 20px 40px 0 rgba(107,154,212,.1);
-    transition: .3s;
-    outline: none;
-    color: #637892;
 
     &--right {
       right: 1rem;
-      &:hover {
-        margin-top: -0.5rem;
-      }
     }
 
     &--left {
       left: 1rem;
-      &:hover {
-        margin-top: 0.5rem;
-      }
     }
   }
 
