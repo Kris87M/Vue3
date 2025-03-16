@@ -2,8 +2,15 @@
   <button
     :style="btnStyles"
     class="btn">
-    <span
-      :class="`fas fa-${icon}`" />
+
+  <!-- icon -->
+  <span
+    v-if="icon"
+    :class="`${iconSet} ${icon}`" />
+
+    <!-- text -->
+    <slot></slot>
+
   </button>
 </template>
 
@@ -14,6 +21,13 @@ export default {
     icon: {
       type: String,
       required: true
+    },
+    iconSet: {
+      type: String,
+      default: 'fas'
+    },
+    text: {
+      type: String
     },
     fontSize: {
       type: Number,
@@ -44,6 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .btn {
+  margin: 0.5rem;
   background-color: #9a9a9a;
   background-image: linear-gradient(0deg, #9a9a9a 0%, #e8fdff 100%);
   border: none;
