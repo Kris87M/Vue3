@@ -1,17 +1,18 @@
 <template>
   <!-- mixtures -->
   <ul class="mixtures">
-    <mixture-item
+    <flask-item
       :key="index"
       v-for="(mixture, index) in mixtures"
-      :mixture="mixture"
+      :variant="mixture.variant"
+      :amount="mixture.amount"
       @increment="$emit('increment', index)"
       @decrement="$emit('decrement', index)" />
   </ul>
 </template>
 
 <script>
-import MixtureItem from './MixtureItem'
+import FlaskItem from './shared/FlaskItem.vue'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -22,7 +23,7 @@ export default {
       required: true
     }
   },
-  components: { MixtureItem }
+  components: { FlaskItem }
 }
 </script>
 
