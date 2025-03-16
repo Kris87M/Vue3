@@ -16,12 +16,40 @@
     <!-- refresh btn -->
     <button-item
     @click="$emit('refresh')"
-      icon="sync"
+      icon="fa-sync"
       :size="4"
       :movement="-0.5"
       :font-size="1.5"
       class="refresh-btn">
     </button-item>
+
+    <!-- question mark btn to show modal -->
+    <button-item
+      @click="showModal"
+      icon="fa-question"
+      :size="4"
+      :movement="-0.5"
+      :font-size="1.5"
+      class="question-btn" />
+
+    <!-- Modal item -->
+    <modal-item
+      v-if="modalVisible"
+      @cancel="hideModal">
+
+      <template v-slot:header>
+        About the App
+      </template>
+
+      <template v-slot:body>
+        Mix three colors to create the perfect one!
+      </template>
+
+      <template v-slot:footer>
+        <button-item icon="fa-thumbs-up" />
+      </template>
+
+    </modal-item>
 
   </div>
 </template>
@@ -29,6 +57,8 @@
 <script>
 import FlaskItem from './shared/FlaskItem.vue'
 import ButtonItem from './shared/ButtonItem.vue'
+import modalMixin from '@/mixins/ModalMixin'
+import ModalItem from './shared/ModalItem.vue'
 
 export default {
   name: 'ResultsBox',
@@ -46,8 +76,10 @@ export default {
   },
   components: {
     FlaskItem,
-    ButtonItem
-  }
+    ButtonItem,
+    ModalItem
+  },
+  mixins: [modalMixin]
 }
 </script>
 
