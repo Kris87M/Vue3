@@ -5,6 +5,9 @@
       <!-- header -->
       <app-header />
 
+      <!-- app-menu -->
+       <app-menu />
+
       <!-- color mixin -->
       <color-mixin />
 
@@ -15,12 +18,14 @@
 <script>
 import './styles/global.scss'
 import AppHeader from './components/AppHeader'
+import AppMenu from './components/AppMenu.vue'
 import ColorMixin from './components/ColorMixin'
 
 export default {
   name: 'App',
   components: {
     AppHeader,
+    AppMenu,
     ColorMixin
   }
 }
