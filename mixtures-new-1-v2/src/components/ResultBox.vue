@@ -16,7 +16,7 @@
     <!-- refresh btn -->
     <button-item
     @click="$emit('refresh')"
-      icon="fa-sync"
+      icon="pi-sync"
       :size="4"
       :movement="-0.5"
       :font-size="1.5"
@@ -26,7 +26,7 @@
     <!-- question mark btn to show modal -->
     <button-item
       @click="showModal"
-      icon="fa-question"
+      icon="pi-question"
       :size="4"
       :movement="-0.5"
       :font-size="1.5"
@@ -46,7 +46,7 @@
       </template>
 
       <template v-slot:footer>
-        <button-item icon="fa-thumbs-up" />
+        <button-item icon="pi-thumbs-up" />
       </template>
 
     </modal-item>
