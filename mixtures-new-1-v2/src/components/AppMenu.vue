@@ -11,15 +11,18 @@ import Menubar from 'primevue/menubar'
 const items = ref([
   {
     label: 'Home',
-    icon: 'pi pi-home'
+    icon: 'pi pi-home',
+    to: '/'
   },
   {
     label: 'Mixin',
-    icon: 'pi pi-star'
+    icon: 'pi pi-star',
+    to: 'mixin'
   },
   {
     label: 'About',
-    icon: 'pi pi-info-circle'
+    icon: 'pi pi-info-circle',
+    to: 'about'
   }
 ])
 </script>

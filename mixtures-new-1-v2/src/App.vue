@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <div class="container">
+  <div class="container">
 
-      <!-- header -->
-      <app-header />
+    <!-- header -->
+    <app-header />
 
-      <!-- app-menu -->
-       <app-menu />
+    <!-- menu -->
+    <app-menu />
 
-      <!-- color mixin -->
-      <color-mixin />
+    <!-- router view -->
+    <router-view />
 
-    </div>
+  </div>
   </div>
 </template>
 
@@ -19,14 +19,12 @@
 import './styles/global.scss'
 import AppHeader from './components/AppHeader'
 import AppMenu from './components/AppMenu.vue'
-import ColorMixin from './components/ColorMixin'
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    AppMenu,
-    ColorMixin
+    AppMenu
   }
 }
 </script>
