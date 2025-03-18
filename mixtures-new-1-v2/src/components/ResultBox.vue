@@ -13,6 +13,9 @@
       :amount="100"
       :buttons-visible="false" />
 
+    <!-- color set -->
+     <p>{{mixtureEffectFill}}</p>
+
     <!-- refresh btn -->
     <button-item
     @click="$emit('refresh')"
@@ -31,6 +34,16 @@
       :movement="-0.5"
       :font-size="1.5"
       class="question-btn" />
+
+    <!-- share btn -->
+    <router-link :to="link">
+      <button-item
+        icon="pi-share-alt"
+        :size="4"
+        :movement="-0.5"
+        :font-size="1.5"
+      />
+     </router-link>
 
     <!-- Modal item -->
     <modal-item
@@ -72,6 +85,10 @@ export default {
     mixtureEffectFill () {
       const [redCol, greenCol, blueCol] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
       return `rgb(${redCol}, ${greenCol}, ${blueCol})`
+    },
+    link () {
+      const [redCol, greenCol, blueCol] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
+      return `/color/${redCol}/${greenCol}/${blueCol}`
     }
   },
   components: {
