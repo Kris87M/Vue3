@@ -17,12 +17,12 @@ const items = ref([
   {
     label: 'Mixin',
     icon: 'pi pi-star',
-    to: 'mixin'
+    to: '/mixin'
   },
   {
     label: 'About',
     icon: 'pi pi-info-circle',
-    to: 'about'
+    to: '/about'
   }
 ])
 </script>
