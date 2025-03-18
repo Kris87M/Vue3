@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/HomePage.vue'
 import About from '@/pages/AboutPage.vue'
 import Mixin from '@/pages/MixinPage.vue'
+import ErrorPage from '@/pages/ErrorPage.vue'
+import ColorPage from '@/pages/ColorPage.vue'
 
 const routes = [
   {
@@ -18,6 +20,16 @@ const routes = [
     path: '/mixin',
     name: 'Mixin',
     component: Mixin
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'Error',
+    component: ErrorPage
+  },
+  {
+    path: '/color/:red?/:green?/:blue?',
+    name: 'Color',
+    component: ColorPage
   }
 ]
 
