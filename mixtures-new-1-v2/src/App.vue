@@ -9,7 +9,9 @@
     <app-menu />
 
     <!-- router view -->
-    <router-view />
+    <slide-fade-animation>
+      <router-view />
+    </slide-fade-animation>
 
   </div>
   </div>
@@ -19,12 +21,14 @@
 import './styles/global.scss'
 import AppHeader from './components/AppHeader'
 import AppMenu from './components/AppMenu.vue'
+import SlideFadeAnimation from './components/shared/SlideFadeAnimation.vue'
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    AppMenu
+    AppMenu,
+    SlideFadeAnimation
   }
 }
 </script>
