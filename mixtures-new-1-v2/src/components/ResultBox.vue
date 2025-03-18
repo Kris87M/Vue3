@@ -46,24 +46,25 @@
      </router-link>
 
     <!-- Modal item -->
-    <modal-item
-      v-if="modalVisible"
-      @cancel="hideModal">
+    <fade-animation>
+      <modal-item
+        v-if="modalVisible"
+        @cancel="hideModal">
 
-      <template v-slot:header>
-        About the App
-      </template>
+        <template v-slot:header>
+          About the App
+        </template>
 
-      <template v-slot:body>
-        Mix three colors to create the perfect one!
-      </template>
+        <template v-slot:body>
+          Mix three colors to create the perfect one!
+        </template>
 
-      <template v-slot:footer>
-        <button-item icon="pi-thumbs-up" />
-      </template>
+        <template v-slot:footer>
+          <button-item icon="pi-thumbs-up" />
+        </template>
 
-    </modal-item>
-
+      </modal-item>
+    </fade-animation>
   </div>
 </template>
 
@@ -72,6 +73,7 @@ import FlaskItem from './shared/FlaskItem.vue'
 import ButtonItem from './shared/ButtonItem.vue'
 import modalMixin from '@/mixins/ModalMixin'
 import ModalItem from './shared/ModalItem.vue'
+import FadeAnimation from './shared/FadeAnimation.vue'
 
 export default {
   name: 'ResultsBox',
@@ -94,7 +96,8 @@ export default {
   components: {
     FlaskItem,
     ButtonItem,
-    ModalItem
+    ModalItem,
+    FadeAnimation
   },
   mixins: [modalMixin]
 }
@@ -109,4 +112,5 @@ export default {
       margin: 3rem auto;
     }
   }
+
 </style>
