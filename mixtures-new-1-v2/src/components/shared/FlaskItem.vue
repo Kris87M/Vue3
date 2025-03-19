@@ -75,8 +75,8 @@ export default {
   },
   methods: {
     zoomIn () {
-      this.$refs.container.classList.add('zoomIn')
-      setTimeout(() => { this.$refs.container.classList.remove('zoomIn') }, 300)
+      this.$refs.container.classList.add('animate__animated', 'animate__shakeY')
+      setTimeout(() => { this.$refs.container.classList.remove('animate__animated', 'animate__shakeY') }, 300)
     },
     increment () {
       this.zoomIn()
@@ -152,30 +152,6 @@ export default {
       left: 1rem;
     }
   }
-}
-
-.fadeIn {
-animation-name: fadeIn;
-animation-iteration-count: 1;
-animation-duration: .3s;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1 }
-}
-
-.zoomIn {
-  animation-name: zoomIn;
-  animation-iteration-count: 1;
-  animation-duration: .3s;
-}
-
-@keyframes zoomIn {
-  0% {  opacity: 0.8; transform: scale3d(1.1, 1.1, 1.1); }
-  20% { transform: scale3d(1,1,1); }
-  70% {  transform: scale3d(1.1,1.1,1.1); }
-  100% { opacity: 1 }
 }
 
 </style>
