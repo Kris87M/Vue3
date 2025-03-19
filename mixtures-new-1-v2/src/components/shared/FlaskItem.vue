@@ -6,6 +6,7 @@
       v-if="buttonsVisible"
       class="flask__btn flask__btn--left"
       icon="pi-arrow-down"
+      movement
       @click="decrement" />
 
     <div
