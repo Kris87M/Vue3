@@ -68,7 +68,6 @@ export default {
   },
   methods: {
     isInvalidColor (value) {
-      console.log(value)
       return isNaN(value) || value < 0 || value > 255
     }
   },
