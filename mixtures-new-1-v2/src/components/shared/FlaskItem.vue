@@ -1,5 +1,5 @@
 <template>
-  <div class="flask" ref="container" :style="flaskStyle" :class="['fadeIn']">
+  <div class="flask animate__animated" :style="flaskStyle" :class="[isAnimated ?'animate__shakeY': '']" @animationend="isAnimated = false">
 
     <!-- decrement btn -->
     <button-item
@@ -28,6 +28,9 @@ import ButtonItem from './ButtonItem.vue'
 
 export default {
   name: 'FlaskItem',
+  data: () => ({
+    isAnimated: false
+  }),
   props: {
     size: {
       type: Number,
@@ -75,8 +78,7 @@ export default {
   },
   methods: {
     zoomIn () {
-      this.$refs.container.classList.add('animate__animated', 'animate__shakeY')
-      setTimeout(() => { this.$refs.container.classList.remove('animate__animated', 'animate__shakeY') }, 300)
+      this.isAnimated = true
     },
     increment () {
       this.zoomIn()
