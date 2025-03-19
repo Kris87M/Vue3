@@ -100,13 +100,13 @@ export default {
 .flask {
   display: block;
   border: 10px solid #ddd;
-  border-radius: 50%;
+  border-radius: $border-radius;
   margin: 2rem 1rem;
   position: relative;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  box-shadow: 0 20px 40px 0 rgba(107,154,212,.3);
+  box-shadow: $shadow;
 
   &__fill {
     width: 100%;

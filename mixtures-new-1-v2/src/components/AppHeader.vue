@@ -12,11 +12,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .heading {
   font-size: 3rem;
-  background-color: #21D4FD;
-  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  background-color: $background-main;
+  background-image: $heading-img;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

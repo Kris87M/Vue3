@@ -59,16 +59,16 @@ export default {
 <style lang="scss" scoped>
 .btn {
   margin: 0.5rem;
-  background-color: #9a9a9a;
-  background-image: linear-gradient(0deg, #9a9a9a 0%, #e8fdff 100%);
+  background-color: $btn-bg-color;
+  background-image: $btn-bg-gradient;
   border: none;
-  border-radius: 50%;
+  border-radius: $border-radius;
   cursor: pointer;
-  box-shadow: 0 20px 40px 0 rgba(107,154,212,.1);
+  box-shadow: $shadow;
   transition: .3s;
   outline: none;
   font-size: 1.5rem;
-  color: #637892;
+  color: $text-color;
     &:hover {
       margin-top: var(--movement);
     }

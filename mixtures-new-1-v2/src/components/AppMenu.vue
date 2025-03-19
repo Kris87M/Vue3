@@ -27,10 +27,10 @@ const items = ref([
 ])
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .menu-bar {
     border-radius: 1rem;
-    box-shadow: 0 20px 40px 0 rgba(107,154,212,.3);
+    box-shadow: $shadow;
     overflow: hidden;
     display: flex;
     justify-content: center;

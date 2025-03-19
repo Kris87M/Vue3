@@ -34,10 +34,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .fog {
-    background-color: #21D4FD;
-    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    background-color: $background-main;
+    background-image: $heading-img;
     position: fixed;
     top: 0;
     left: 0;
