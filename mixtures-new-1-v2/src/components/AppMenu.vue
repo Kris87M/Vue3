@@ -23,6 +23,11 @@ const items = ref([
     label: 'About',
     icon: 'pi pi-info-circle',
     to: '/about'
+  },
+  {
+    label: 'My colors',
+    icon: 'pi pi-palette',
+    to: '/my-colors'
   }
 ])
 </script>
