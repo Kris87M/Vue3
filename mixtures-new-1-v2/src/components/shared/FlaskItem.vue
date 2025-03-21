@@ -20,6 +20,14 @@
       icon="pi-arrow-up"
       :movement="-0.5"
       @click="increment" />
+
+    <!-- remove btn -->
+    <button-item
+    v-if="trashVisible"
+      class="flask__btn flask__btn--center"
+      icon="pi pi-trash"
+      @click="remove" />
+
   </div>
 
 </template>
@@ -50,6 +58,10 @@ export default {
     buttonsVisible: {
       type: Boolean,
       default: true
+    },
+    trashVisible: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -144,8 +156,8 @@ export default {
 
   &__btn {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 45%;
+    transform: translateY(-45%);
 
     &--right {
       right: 1rem;
@@ -153,6 +165,9 @@ export default {
 
     &--left {
       left: 1rem;
+    }
+    &--center {
+      left: 3rem;
     }
   }
 }
