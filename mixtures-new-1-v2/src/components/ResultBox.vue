@@ -15,6 +15,7 @@
 
     <!-- color set -->
      <p>{{mixtureEffectFill}}</p>
+     <p>{{`There are ${colors.length} colors in your pocket`}}</p>
 
     <!-- refresh btn -->
     <button-item
@@ -45,6 +46,13 @@
       />
      </router-link>
 
+     <!-- save btn  -->
+    <button-item
+    @click="saveColor"
+    icon="pi pi-pencil"
+    :size="4"
+    :font-size="1.5"/>
+
     <!-- Modal item -->
     <fade-animation>
       <modal-item
@@ -74,6 +82,7 @@ import ButtonItem from './shared/ButtonItem.vue'
 import modalMixin from '@/mixins/ModalMixin'
 import ModalItem from './shared/ModalItem.vue'
 import FadeAnimation from './shared/FadeAnimation.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'ResultsBox',
@@ -91,6 +100,9 @@ export default {
     link () {
       const [redCol, greenCol, blueCol] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
       return `/color/${redCol}/${greenCol}/${blueCol}`
+    },
+    colors () {
+      return this.$store.state.colors
     }
   },
   components: {
@@ -99,7 +111,14 @@ export default {
     ModalItem,
     FadeAnimation
   },
-  mixins: [modalMixin]
+  mixins: [modalMixin],
+  methods: {
+    saveColor () {
+      const [red, green, blue] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
+      this.addColor({ red, green, blue })
+    },
+    ...mapMutations({ addColor: 'ADD_COLOR' })
+  }
 }
 </script>
 
