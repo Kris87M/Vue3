@@ -4,7 +4,7 @@
     :key="index"
     v-for="(color, index) in colors"
     :amount="100"
-    :color=myColor(color)
+    :color=color
     :buttons-visible=false
     :trash-visible="true"
     @click="removeColor(index)"/>
@@ -13,21 +13,16 @@
 
 <script>
 import FlaskItem from './shared/FlaskItem.vue'
-import { mapMutations, mapState } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'MyColorsList',
   components: {
     FlaskItem
   },
-  computed: {
-    ...mapState(['colors'])
-  },
+  computed: mapGetters({ colors: 'RGBColors' }),
   methods: {
     ...mapMutations({ removeColorMutation: 'REMOVE_COLOR' }),
-    myColor (color) {
-      return `rgb(${color.red}, ${color.green}, ${color.blue})`
-    },
     removeColor (index) {
       this.removeColorMutation(index)
     }
