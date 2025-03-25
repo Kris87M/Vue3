@@ -34,6 +34,7 @@
 
 <script>
 import ButtonItem from './ButtonItem.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'FlaskItem',
@@ -62,6 +63,10 @@ export default {
     trashVisible: {
       type: Boolean,
       default: false
+    },
+    index: {
+      type: Number,
+      required: true
     }
   },
   computed: {
@@ -90,16 +95,17 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['updateAmount']),
     zoomIn () {
       this.isAnimated = true
     },
     increment () {
       this.zoomIn()
-      this.$emit('increment')
+      this.updateAmount({ index: this.index, amount: this.amount + 1 })
     },
     decrement () {
       this.zoomIn()
-      this.$emit('decrement')
+      this.updateAmount({ index: this.index, amount: this.amount - 1 })
     }
   },
   components: {
