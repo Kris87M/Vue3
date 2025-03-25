@@ -19,7 +19,7 @@
 
     <!-- refresh btn -->
     <button-item
-    @click="$emit('refresh')"
+      @click="refresh"
       icon="pi-sync"
       :size="4"
       :movement="-0.5"
@@ -86,22 +86,28 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'ResultsBox',
-  props: {
-    mixtures: {
-      type: Array,
-      required: true
-    }
-  },
   computed: {
+    ...mapGetters(['getMixtures', 'ColorsAmount']),
     mixtureEffectFill () {
-      const [redCol, greenCol, blueCol] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
-      return `rgb(${redCol}, ${greenCol}, ${blueCol})`
+      const [red, green, blue] = this.getMixtures.map(item => Math.floor(item.amount * 2.5))
+      return `rgb(${red}, ${green}, ${blue})`
     },
     link () {
-      const [redCol, greenCol, blueCol] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
-      return `/color/${redCol}/${greenCol}/${blueCol}`
+      const [red, green, blue] = this.getMixtures.map(item => Math.floor(item.amount * 2.5))
+      return `/color/${red}/${green}/${blue}`
     },
-    ...mapGetters({ amount: 'ColorsAmount' })
+    amount () {
+      return this.ColorsAmount
+    }
+  },
+  methods: {
+    ...mapActions(['addColor', 'resetMixtures']),
+    refresh () {
+      this.resetMixtures()
+    },
+    saveColor () {
+      this.addColor(this.getMixtures)
+    }
   },
   components: {
     FlaskItem,
@@ -109,13 +115,7 @@ export default {
     ModalItem,
     FadeAnimation
   },
-  mixins: [modalMixin],
-  methods: {
-    saveColor () {
-      this.addColor(this.mixtures)
-    },
-    ...mapActions(['addColor'])
-  }
+  mixins: [modalMixin]
 }
 </script>
 
